@@ -3,10 +3,11 @@ package edu.uancv.domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "clientes")
-public class Cliente {
+public class Cliente implements Serializable{
 
     @Id
     @JsonProperty("id")
@@ -14,8 +15,8 @@ public class Cliente {
     private Long pk;
     private String nombre;
     private String apellidos;
-    private String usuario;
-    private String password;
+    private String direccion;
+    private String telefono;
 
     public Long getPk() {
         return pk;
@@ -41,19 +42,19 @@ public class Cliente {
         this.apellidos = apellidos;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public String getPassword() {
-        return password;
+    public String getTelefono() {
+        return telefono;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 }

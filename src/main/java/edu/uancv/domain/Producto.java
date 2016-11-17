@@ -14,6 +14,8 @@ public class Producto {
     private Long pk;
     private String nombre;
     private Long cantidad;
+    private Double precio;
+    private String rutaImagen;
 
     public Long getPk() {
         return pk;
@@ -37,5 +39,21 @@ public class Producto {
 
     public void setCantidad(Long cantidad) {
         this.cantidad = cantidad;
+    }
+
+    public Double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(Double precio) {
+        this.precio = precio;
+    }
+
+    public String getRutaImagen() {
+        return rutaImagen;
+    }
+
+    public void setRutaImagen(String rutaImagen) {
+        this.rutaImagen = rutaImagen;
     }
 }
