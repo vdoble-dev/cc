@@ -37,4 +37,11 @@ public class ProductoServiceImpl implements ProductoService {
     public Producto update(Producto producto) {
         return productoDao.saveAndFlush(producto);
     }
+
+    @Override
+    public void updateStock(Long idProducto, Long cantidad) {
+        Producto producto = this.getById(idProducto);
+        producto.setCantidad(producto.getCantidad() - cantidad);
+        this.update(producto);
+    }
 }

@@ -3,8 +3,9 @@ package edu.uancv.service.impl;
 import edu.uancv.dao.CompraDao;
 import edu.uancv.dao.DetalleCompraDao;
 import edu.uancv.domain.Compra;
-import edu.uancv.domain.DetalleCompra;
+import edu.uancv.domain.Producto;
 import edu.uancv.service.CompraService;
+import edu.uancv.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,9 @@ public class CompraServiceImpl implements CompraService {
 
     @Autowired
     DetalleCompraDao detalleCompraDao;
+
+    @Autowired
+    ProductoService productoService;
 
     @Override
     public List<Compra> getAll() {
@@ -42,9 +46,20 @@ public class CompraServiceImpl implements CompraService {
         compra.setTotal(
                 compra.getListaDetalleCompra()
                         .stream()
-                        .mapToDouble(DetalleCompra::getPrecio)
+                        .mapToDouble(detalle -> {
+                            // Calcula precio del producto * cantidad
+                            Producto producto = productoService.getById(detalle.getProducto().getPk());
+                            detalle.setPrecio(producto.getPrecio());
+                            detalle.setTotal(producto.getPrecio() * detalle.getCantidad());
+
+                            return detalle.getTotal();
+                        })
                         .sum()
         );
+
+        // Actualizar stock de cada producto
+        compra.getListaDetalleCompra()
+                .forEach(detalle -> productoService.updateStock(detalle.getProducto().getPk(), detalle.getCantidad()));
 
         compraDao.save(compra);
 
@@ -54,12 +69,5 @@ public class CompraServiceImpl implements CompraService {
         });
 
         return compra;
-
-    }
-
-    @Override
-    @Transactional(readOnly = false)
-    public Compra update(Compra compra) {
-        return null;//compraDao.saveAndFlush(compra);
     }
 }

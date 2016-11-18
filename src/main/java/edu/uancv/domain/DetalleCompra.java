@@ -13,7 +13,7 @@ public class DetalleCompra {
     @JsonProperty("id")
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long pk;
-    private Integer cantidad;
+    private Long cantidad;
     private Double precio;
     private Double total;
 
@@ -32,11 +32,11 @@ public class DetalleCompra {
         this.pk = pk;
     }
 
-    public Integer getCantidad() {
+    public Long getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(Integer cantidad) {
+    public void setCantidad(Long cantidad) {
         this.cantidad = cantidad;
     }
 

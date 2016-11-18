@@ -27,13 +27,8 @@ public class CompraController {
         return new ResponseEntity<Compra>(this.compraService.getById(idCompra), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Compra> save(@RequestBody Compra compra) {
         return new ResponseEntity<Compra>(this.compraService.save(compra), HttpStatus.CREATED);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
-    public ResponseEntity<Compra> update(@RequestBody Compra compra) {
-        return new ResponseEntity<Compra>(this.compraService.update(compra), HttpStatus.ACCEPTED);
     }
 }

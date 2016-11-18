@@ -13,4 +13,6 @@ public interface ProductoService {
     public Producto save(Producto producto);
 
     public Producto update(Producto producto);
+
+    public void updateStock(Long idProducto, Long cantidad);
 }

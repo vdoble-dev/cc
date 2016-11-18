@@ -11,6 +11,4 @@ public interface CompraService {
     public Compra getById(Long idCompra);
 
     public Compra save(Compra compra);
-
-    public Compra update(Compra compra);
 }

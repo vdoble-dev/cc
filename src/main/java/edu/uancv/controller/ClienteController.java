@@ -27,12 +27,12 @@ public class ClienteController {
         return new ResponseEntity<Cliente>(this.clienteService.getById(idCliente), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Cliente> save(@RequestBody Cliente cliente) {
         return new ResponseEntity<Cliente>(this.clienteService.save(cliente), HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Cliente> update(@RequestBody Cliente cliente) {
         return new ResponseEntity<Cliente>(this.clienteService.update(cliente), HttpStatus.ACCEPTED);
     }

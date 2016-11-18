@@ -27,12 +27,12 @@ public class ProductoController {
         return new ResponseEntity<Producto>(this.productoService.getById(idProducto), HttpStatus.ACCEPTED);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Producto> save(@RequestBody Producto producto) {
         return new ResponseEntity<Producto>(this.productoService.save(producto), HttpStatus.CREATED);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    @PutMapping(consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
     public ResponseEntity<Producto> update(@RequestBody Producto producto) {
         return new ResponseEntity<Producto>(this.productoService.update(producto), HttpStatus.ACCEPTED);
     }
