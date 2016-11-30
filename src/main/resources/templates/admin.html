@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="layout/default" lang="es">
+<head>
+    <title>CC - UANCV</title>
+</head>
+<body>
+<div ng-app="admin" layout:fragment="content" ui-view="admin">
+    <!--<script src="app/main/productos/productos.module.js"></script>-->
+    <!--<script src="app/main/productos/productos.service.js"></script>-->
+    <!--<script src="app/main/productos/productos.controller.js"></script>-->
+
+    <script src="app/main/admin/admin.module.js"></script>
+    <script src="app/main/admin/productos/productos.module.js"></script>
+    <script src="app/main/admin/productos/productos.controller.js"></script>
+
+    <!--<script src="app/main/main.module.js"></script>-->
+</div>
+</body>
+</html>

@@ -6,8 +6,15 @@
     <title>CC - UANCV</title>
 </head>
 <body>
-<div layout:fragment="content" ui-view="main@">
+<div ng-app="mainApp" layout:fragment="content" ui-view="mainApp">
 
+    <script src="app/main/productos/productos.module.js"></script>
+    <script src="app/main/productos/productos.service.js"></script>
+    <script src="app/main/productos/productos.controller.js"></script>
+    <!--<script src="app/main/admin/admin.module.js"></script>-->
+    <!--<script src="app/main/admin/productos/productos.module.js"></script>-->
+    <!--<script src="app/main/admin/productos/productos.controller.js"></script>-->
+    <script src="app/main/main.module.js"></script>
 </div>
 </body>
 </html>

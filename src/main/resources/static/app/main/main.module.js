@@ -12,7 +12,7 @@
             'ngMaterial',
             'pascalprecht.translate',
             'ui.router',
-            'productos'
+            'mainApp.productos'
         ]);
 
     angular.module('mainApp')
@@ -20,7 +20,6 @@
 
 
     function configMainApp($stateProvider, $urlRouterProvider) {
-        console.log('hola');
 
         $urlRouterProvider.otherwise('/productos');
 
@@ -28,7 +27,7 @@
             .state('mainApp', {
                 abstract: true,
                 views: {
-                    'main@': {
+                    'mainApp@': {
                         templateUrl: 'app/components/main.html',
                         controller: function () {
                         }

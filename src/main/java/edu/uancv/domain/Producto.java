@@ -13,6 +13,7 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long pk;
     private String nombre;
+    private String descripcion;
     private Long cantidad;
     private Double precio;
     private String rutaImagen;
@@ -31,6 +32,14 @@ public class Producto {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public Long getCantidad() {
@@ -56,4 +65,5 @@ public class Producto {
     public void setRutaImagen(String rutaImagen) {
         this.rutaImagen = rutaImagen;
     }
+
 }

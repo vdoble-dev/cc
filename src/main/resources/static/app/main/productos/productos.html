@@ -1,0 +1,24 @@
+<div ng-repeat="productosRow in vm.productos" layout-gt-sm="row" layout="column" layout-padding style="{{$last?'margin-bottom: 45px;': ''}}">
+    <md-card ng-repeat="producto in productosRow" flex-gt-sm="33" flex>
+        <md-card-content>
+            <md-card-title layout-align="center center">
+                <md-card-title-media flex="50">
+                    <img src="app/assets/img.png" alt="img" class="md-media-md">
+                </md-card-title-media>
+
+                <md-card-title-text flex="50">
+                    <span class="md-headline">{{producto.nombre}}</span>
+                    <span class="md-subhead">{{producto.descripcion}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions>
+                <md-button class="md-raised md-primary">
+                    Comprar
+                </md-button>
+                <md-button class="md-raised md-primary">
+                    Comprar
+                </md-button>
+            </md-card-actions>
+        </md-card-content>
+    </md-card>
+</div>
