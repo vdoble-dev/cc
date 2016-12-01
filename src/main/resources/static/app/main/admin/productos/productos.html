@@ -1,3 +1,7 @@
+<div flex layout="row" layout-align="end center">
+    <md-button aria-label="aria-label" class="md-raised md-accent" ng-click="vm.crearNuevo()">Nuevo
+    </md-button>
+</div>
 <md-content class="md-whiteframe-1dp" layout-padding>
     <div>
         <h1>Lista de Productos</h1>
@@ -14,13 +18,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <td>adf</td>
-            <td>adf</td>
-            <td>adf</td>
-            <td>adf</td>
-            <td>adf</td>
-            <td>adf</td>
+        <tr ng-repeat="producto in vm.productos">
+            <td>{{$index + 1}}</td>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.descripcion}}</td>
+            <td>{{producto.cantidad}}</td>
+            <td>{{producto.precio | number:2}}</td>
+            <td>
+                <md-button aria-label="aria-label" class="md-raised md-warning" ng-click="vm.editar(producto.id)">Editar
+                </md-button>
+            </td>
         </tr>
         </tbody>
     </table>

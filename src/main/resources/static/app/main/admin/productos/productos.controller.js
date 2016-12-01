@@ -6,20 +6,18 @@
     .controller('AdminProductosController', AdminProductosController);
 
   /** @ngInject */
-  function AdminProductosController($state/*, productos*/) {
+  function AdminProductosController($state, productos) {
     var vm = this;
 
-    vm.productos = [];
+    vm.productos = angular.copy(productos);
 
-    vm.post = function (_id) {
-      $state.go('app.campanias.nuevo', {
-        id: 0
-      });
+    vm.crearNuevo = function () {
+        $state.go('admin.productos.nuevo', {id: 0});
     };
-    vm.put = function (_id) {
-      $state.go('app.campanias.nuevo', {
-        id: _id
-      });
-    }
+
+    vm.editar = function (id) {
+       $state.go('admin.productos.nuevo', {id: id});
+    };
+
   }
 })();

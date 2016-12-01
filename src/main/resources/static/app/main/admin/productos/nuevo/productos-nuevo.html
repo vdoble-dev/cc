@@ -1,0 +1,45 @@
+<div class="md-whiteframe-1dp" layout-padding>
+    <div>
+        <h1>Nuevo Producto</h1>
+    </div>
+
+    <form name="productForm">
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="60">
+                <label>Producto</label>
+                <input ng-model="vm.producto.nombre">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="20">
+                <label>Precio</label>
+                <input type="number" ng-model="vm.producto.precio">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="20">
+                <label>Cantidad</label>
+                <input type="number" ng-model="vm.producto.cantidad">
+            </md-input-container>
+            <!--<md-input-container class="md-block" flex-gt-sm>-->
+            <!--<label>Imagen</label>-->
+            <!--<input type="file" ng-model="vm.producto.cantidad">-->
+            <!--</md-input-container>-->
+        </div>
+
+        <md-input-container class="md-block">
+            <label>Descripcion</label>
+            <textarea ng-model="vm.producto.descripcion" md-maxlength="150" rows="5" md-select-on-focus></textarea>
+        </md-input-container>
+
+
+    </form>
+    <md-content layout layout-align="end center" layout-padding>
+        <div>
+            <md-button class="md-raised md-primary" ng-click="vm.post($event)">
+                Guardar
+            </md-button>
+        </div>
+    </md-content>
+
+</div>
+<div>
+    <pre>{{vm.producto | json}}</pre>
+</div>
