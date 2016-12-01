@@ -2,30 +2,48 @@
     <md-button aria-label="aria-label" class="md-raised md-accent" ng-click="vm.crearNuevo()">Nuevo
     </md-button>
 </div>
-<md-content class="md-whiteframe-1dp" layout-padding>
+<md-content class="md-whiteframe-4dp" layout-padding>
     <div>
         <h1>Lista de Productos</h1>
     </div>
-    <table class="simple">
+    <table datatable="ng" dt-options="vm.dtOptions" class="row-border hover">
         <thead>
         <tr>
-            <th>#</th>
-            <th>Producto</th>
-            <th>Descripci&oacute;n</th>
-            <th>Cantidad</th>
-            <th>Precio</th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">#</span>
+                </div>
+            </th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Producto</span>
+                </div>
+            </th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Descripci&oacute;n</span>
+                </div>
+            </th>
+            <th><div class="table-header">
+                <span class="column-title">Cantidad</span>
+            </div></th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Precio</span>
+                </div>
+            </th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="producto in vm.productos">
-            <td>{{$index + 1}}</td>
-            <td>{{producto.nombre}}</td>
-            <td>{{producto.descripcion}}</td>
-            <td>{{producto.cantidad}}</td>
-            <td>{{producto.precio | number:2}}</td>
+            <td class="center">{{$index + 1}}</td>
+            <td class="center">{{producto.nombre}}</td>
+            <td class="center">{{producto.descripcion}}</td>
+            <td class="center">{{producto.cantidad}}</td>
+            <td class="center">{{producto.precio | number:2}}</td>
             <td>
-                <md-button aria-label="aria-label" class="md-raised md-warning" ng-click="vm.editar(producto.id)">Editar
+                <md-button aria-label="aria-label" class="md-raised md-warn" ng-click="vm.editar(producto.id)">Editar
                 </md-button>
             </td>
         </tr>

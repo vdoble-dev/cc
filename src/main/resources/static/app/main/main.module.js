@@ -12,6 +12,8 @@
             'ngMaterial',
             'pascalprecht.translate',
             'ui.router',
+            'datatables',
+            'app.util',
             'mainApp.productos'
         ]);
 

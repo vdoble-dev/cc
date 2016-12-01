@@ -12,6 +12,8 @@
             'ngMaterial',
             'pascalprecht.translate',
             'ui.router',
+            'datatables',
+            'app.util',
             'admin.productos']);
 
     angular.module('admin')
