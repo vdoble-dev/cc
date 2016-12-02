@@ -13,14 +13,17 @@
             'pascalprecht.translate',
             'ui.router',
             'datatables',
+            'cloudinary',
+            'ngFileUpload',
+            'lfNgMdFileInput',
             'app.util',
             'admin.productos']);
 
     angular.module('admin')
-        .config(['$stateProvider', '$urlRouterProvider', configAdmin]);
+        .config(['$stateProvider', '$urlRouterProvider', 'cloudinaryProvider', configAdmin]);
 
 
-    function configAdmin($stateProvider, $urlRouterProvider) {
+    function configAdmin($stateProvider, $urlRouterProvider, cloudinaryProvider) {
     $urlRouterProvider.otherwise('/productos');
         $stateProvider
             .state('admin', {
@@ -43,5 +46,11 @@
                      }
                 }
             });
+
+
+
+        cloudinaryProvider
+              .set("cloud_name", "dg2fr3vrw")
+              .set("upload_preset", "m5o1mveh");
     }
 })();

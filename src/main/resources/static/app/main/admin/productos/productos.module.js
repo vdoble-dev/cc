@@ -38,7 +38,9 @@
                             nombre: null,
                             precio: null,
                             cantidad: null,
-                            descripcion: null
+                            descripcion: null,
+                            rutaImagen: null
+
                         };
                     } else if ($stateParams.id === '') {
                         $state.go('admin.productos');

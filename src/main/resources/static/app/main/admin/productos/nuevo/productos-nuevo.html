@@ -18,16 +18,21 @@
                 <label>Cantidad</label>
                 <input type="number" ng-model="vm.producto.cantidad">
             </md-input-container>
-            <!--<md-input-container class="md-block" flex-gt-sm>-->
-            <!--<label>Imagen</label>-->
-            <!--<input type="file" ng-model="vm.producto.cantidad">-->
-            <!--</md-input-container>-->
         </div>
 
         <md-input-container class="md-block">
             <label>Descripci&oacute;n</label>
             <textarea ng-model="vm.producto.descripcion" md-maxlength="150" rows="5" md-select-on-focus></textarea>
         </md-input-container>
+
+        <div ng-show="vm.producto.rutaImagen !== null">
+            <h4>Imagen Actual:</h4>
+            <td class="center"><img ng-src="{{vm.producto.rutaImagen}}" alt="img" width="112px" height="112px"></td>
+        </div>
+
+        <div>
+            <lf-ng-md-file-input lf-files="files" accept="image/*" preview lf-option="option"></lf-ng-md-file-input>
+        </div>
 
 
     </form>

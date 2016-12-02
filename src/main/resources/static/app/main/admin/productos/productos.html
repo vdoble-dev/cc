@@ -32,7 +32,13 @@
                     <span class="column-title">Precio</span>
                 </div>
             </th>
-            <th></th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Imagen</span>
+                </div>
+            </th>
+            <th>
+            </th>
         </tr>
         </thead>
         <tbody>
@@ -42,6 +48,7 @@
             <td class="center">{{producto.descripcion}}</td>
             <td class="center">{{producto.cantidad}}</td>
             <td class="center">{{producto.precio | number:2}}</td>
+            <td class="center"><img ng-src="{{producto.rutaImagen}}" alt="img" width="112px" height="112px"></td>
             <td>
                 <md-button aria-label="aria-label" class="md-raised md-warn" ng-click="vm.editar(producto.id)">Editar
                 </md-button>
