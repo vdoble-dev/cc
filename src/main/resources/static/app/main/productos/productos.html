@@ -1,4 +1,5 @@
-<div ng-repeat="productosRow in vm.productos" layout-gt-sm="row" layout="column" layout-padding style="{{$last?'margin-bottom: 45px;': ''}}">
+<div ng-repeat="productosRow in vm.productos" layout-gt-sm="row" layout="column" layout-padding
+     style="{{$last?'margin-bottom: 45px;': ''}}">
     <md-card ng-repeat="producto in productosRow" flex-gt-sm="33" flex>
         <md-card-content>
             <md-card-title layout-align="center center">
@@ -12,12 +13,19 @@
                 </md-card-title-text>
             </md-card-title>
             <md-card-actions>
-                <md-button class="md-raised md-primary">
-                    Comprar
-                </md-button>
-                <md-button class="md-raised md-primary">
-                    Comprar
-                </md-button>
+                <div layout>
+                    <div flex>
+                        <md-button ng-show="vm.showAddButton(producto)" class="md-raised md-accent" ng-click="vm.addProduct(producto)">
+                            Agregar
+                        </md-button>
+                        <md-button ng-show="vm.showRemoveButton(producto)" class="md-raised md-primary" ng-click="vm.removeProduct(producto)">
+                            Quitar
+                        </md-button>
+                    </div>
+                    <div flex layout layout-align="end center" layout-margin>
+                        <span class="md-subhead">{{producto.precio | currency:'S/. '}}</span>
+                    </div>
+                </div>
             </md-card-actions>
         </md-card-content>
     </md-card>

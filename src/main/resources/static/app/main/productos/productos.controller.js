@@ -10,7 +10,8 @@
     var vm = this;
 
     vm.productos = getCustomProducts();
-    console.log(vm.productos);
+
+    vm.productosSeleccionados = [];
 
     vm.post = function (_id) {
       $state.go('app.campanias.nuevo', {
@@ -21,6 +22,30 @@
       $state.go('app.campanias.nuevo', {
         id: _id
       });
+    }
+
+    vm.addProduct = function (producto) {
+        vm.productosSeleccionados.push(producto);
+    };
+
+    vm.removeProduct = function (producto) {
+        if(existProduct(producto)) vm.productosSeleccionados.splice(getIndexProduct(producto), 1);
+    };
+
+    vm.showAddButton = function (producto) {
+        return !existProduct(producto);
+    };
+
+    vm.showRemoveButton = function (producto) {
+        return existProduct(producto);
+    };
+
+    function existProduct(producto) {
+       return vm.productosSeleccionados.indexOf(producto) !== -1;
+    }
+
+    function getIndexProduct(producto) {
+        return vm.productosSeleccionados.indexOf(producto);
     }
 
     function getCustomProducts() {
