@@ -13,7 +13,7 @@
                  .withPaginationType('full_numbers')
                  .withLanguage({
                    "sEmptyTable": "No hay Registros",
-                   "sInfo": /*"Mostrando _START_ a _END_ de _TOTAL_ registros"*/ "",
+                   "sInfo": "Total: _TOTAL_ registro(s)",
                    "sInfoEmpty": /*"No hay Registros"*/ "",
                    "sInfoFiltered": /*"(filtered from _MAX_ total entries)"*/ "",
                    "sInfoPostFix": "",
