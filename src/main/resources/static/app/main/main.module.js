@@ -10,16 +10,19 @@
             'ngResource',
             'ngSanitize',
             'ngMaterial',
+            'LocalStorageModule',
             'pascalprecht.translate',
             'ui.router',
             'datatables',
             'app.util',
-            'mainApp.productos'
+            'mainApp.login',
+            'mainApp.productos',
+            'mainApp.registro',
+            'mainApp.carrito'
         ]);
 
     angular.module('mainApp')
         .config(['$stateProvider', '$urlRouterProvider', configMainApp]);
-
 
     function configMainApp($stateProvider, $urlRouterProvider) {
 

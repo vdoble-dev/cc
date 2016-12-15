@@ -36,4 +36,10 @@ public class ClienteController {
     public ResponseEntity<Cliente> update(@RequestBody Cliente cliente) {
         return new ResponseEntity<Cliente>(this.clienteService.update(cliente), HttpStatus.ACCEPTED);
     }
+
+    @PostMapping(value = "/check", consumes = MediaType.APPLICATION_JSON_UTF8_VALUE)
+    public ResponseEntity<Cliente> checkCredentials(@RequestBody Cliente cliente) {
+        return new ResponseEntity<Cliente>(this.clienteService.checkCredentials(cliente.getUserName(), cliente.getPassword()),
+                HttpStatus.ACCEPTED);
+    }
 }

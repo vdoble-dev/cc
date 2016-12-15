@@ -13,4 +13,6 @@ public interface ClienteService {
     public Cliente save(Cliente cliente);
 
     public Cliente update(Cliente cliente);
+
+    public Cliente checkCredentials(String userName, String password);
 }

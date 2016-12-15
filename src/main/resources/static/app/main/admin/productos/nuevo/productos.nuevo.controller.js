@@ -27,16 +27,16 @@
               $mdDialog.show(confirmDialog)
                 .then(function () {
 
-                Upload.upload({
-                    url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
-                    data: {
-                      upload_preset: cloudinary.config().upload_preset,
-                      tags: 'myphotoalbum',
-                      context: 'photo=' + $scope.title,
-                      file: $scope.files[0].lfFile
-                    }
-                  }).success(function (data, status, headers, config) {
-                    vm.producto.rutaImagen = data.url;
+//                Upload.upload({
+//                    url: "https://api.cloudinary.com/v1_1/" + cloudinary.config().cloud_name + "/upload",
+//                    data: {
+//                      upload_preset: cloudinary.config().upload_preset,
+//                      tags: 'myphotoalbum',
+//                      context: 'photo=' + $scope.title,
+//                      file: $scope.files[0].lfFile
+//                    }
+//                  }).success(function (data, status, headers, config) {
+                    vm.producto.rutaImagen = 'app/assets/img.png'//data.url;
                     AdminProductosService.post(vm.producto).then(function (data) {
                         console.log(data);
                         $mdToast.show(
@@ -47,7 +47,7 @@
                           );
                           $state.go('^', {}, {reload: true});
                     });
-                  });
+//                  });
                 });
 
 

@@ -1,14 +1,26 @@
 <span flex></span>
-<div class="md-toolbar-tools" layout>
+<div class="md-toolbar-tools" layout ng-controller="LoginController as vm">
     <div flex="nogrow">
         <h2>UANCV</h2>
     </div>
     <div flex layout layout-align="end center">
         <div>
-            <md-button>Productos</md-button>
+            <md-button ui-sref="mainApp.productos">Productos</md-button>
         </div>
-        <div>
-            <md-button>Carrito</md-button>
+        <div ng-show="vm.isLogedIn.state">
+            <md-button ui-sref="mainApp.carrito">Carrito</md-button>
         </div>
+
+        <div ng-hide="vm.isLogedIn.state">
+            <md-button ui-sref="mainApp.login">Acceder</md-button>
+        </div>
+        <div ng-hide="vm.isLogedIn.state">
+            <md-button ui-sref="mainApp.registro">Registrarse</md-button>
+        </div>
+
+        <div ng-show="vm.isLogedIn.state">
+            <md-button ng-click="vm.logout($event)">Salir</md-button>
+        </div>
+
     </div>
 </div>

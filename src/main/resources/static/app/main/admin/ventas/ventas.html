@@ -1,0 +1,98 @@
+<md-content class="md-whiteframe-4dp" layout-padding>
+    <div>
+        <h1>Ventas</h1>
+    </div>
+    <table datatable="ng" dt-options="vm.dtOptions" class="row-border hover">
+        <thead>
+        <tr>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">#</span>
+                </div>
+            </th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Fecha</span>
+                </div>
+            </th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Cliente</span>
+                </div>
+            </th>
+            <th><div class="table-header">
+                <span class="column-title">Total</span>
+            </div></th>
+            <th>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="venta in vm.ventas">
+            <td class="center">{{$index + 1}}</td>
+            <td class="center">{{venta.fecha | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+            <td class="center">{{venta.cliente.apellidos | uppercase}}, {{venta.cliente.nombre | lowercase}}</td>
+            <td class="center">{{venta.total | currency: 'S/. '}}</td>
+            <td class="center">
+                <md-button aria-label="aria-label" class="md-raised md-primary" ng-click="vm.detalles(venta)">Detalles
+                </md-button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</md-content>
+
+
+<script type="text/ng-template" id="detalleVenta.html">
+    <md-dialog>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>{{vm.venta.cliente.apellidos | uppercase}}, {{vm.venta.cliente.nombre}}</h2>
+            </div>
+        </md-toolbar>
+        <md-dialog-content class="md-dialog-content">
+
+            <div layout="colum" layout-padding>
+                <div class="simple-table-container md-whiteframe-4dp">
+
+                    <div class="table-title">
+                        Detalle ({{vm.venta.fecha | date: 'dd/MM/yyyy hh:mm:ss'}})
+                    </div>
+
+                    <table class="simple">
+                        <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Producto</th>
+                            <th>Descripci&oacute;n</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                            <th>Sub Total</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="detalle in vm.venta.listaDetalleCompra">
+                            <td>{{$index+1}}</td>
+                            <td>{{detalle.producto.nombre}}</td>
+                            <td>{{detalle.producto.descripcion}}</td>
+                            <td>{{detalle.producto.precio | currency: 'S/. '}}</td>
+                            <td>{{detalle.producto.precio | currency: 'S/. '}}</td>
+                            <td>{{detalle.total | currency: 'S/. '}}</td>
+
+                        </tr>
+                        <tr>
+                            <td colspan="4"></td>
+                            <td><strong>TOTAL:</strong></td>
+                            <td><strong>{{vm.venta.total | currency: 'S/. '}}</strong></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div layout layout-align="end center">
+                <md-button class="md-raised md-warn" ng-click="vm.close()">Salir</md-button>
+            </div>
+
+        </md-dialog-content>
+    </md-dialog>
+</script>

@@ -37,4 +37,23 @@ public class ClienteServiceImpl implements ClienteService {
     public Cliente update(Cliente cliente) {
         return clienteDao.saveAndFlush(cliente);
     }
+
+    @Override
+    public Cliente checkCredentials(String userName, String password) {
+
+        List<Cliente> clientes = this.getAll();
+        Cliente cliente = null;
+
+        if (clientes != null) {
+            for (Cliente c : clientes) {
+                if (isCredentialsEquals(c, userName, password)) return c;
+            }
+        }
+
+        return cliente;
+    }
+
+    private boolean isCredentialsEquals(Cliente cliente, String userName, String password) {
+        return cliente.getUserName().equalsIgnoreCase(userName) && cliente.getPassword().equalsIgnoreCase(password);
+    }
 }

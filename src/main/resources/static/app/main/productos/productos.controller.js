@@ -6,12 +6,10 @@
     .controller('ProductosController', ProductosController);
 
   /** @ngInject */
-  function ProductosController($state, productos) {
+  function ProductosController($state, productos, localStorageService) {
     var vm = this;
-
     vm.productos = getCustomProducts();
-
-    vm.productosSeleccionados = [];
+    vm.productosSeleccionados = localStorageService.get('carrito') || [];
 
     vm.post = function (_id) {
       $state.go('app.campanias.nuevo', {
@@ -25,11 +23,20 @@
     }
 
     vm.addProduct = function (producto) {
-        vm.productosSeleccionados.push(producto);
+        var prod = {};
+        prod.producto = angular.copy(producto);
+        prod.cantidad = 1;
+        prod.precio = prod.producto.precio;
+        prod.total = prod.cantidad * prod.producto.precio;
+
+        vm.productosSeleccionados.push(prod);
+        localStorageService.set('carrito', vm.productosSeleccionados);
     };
 
     vm.removeProduct = function (producto) {
         if(existProduct(producto)) vm.productosSeleccionados.splice(getIndexProduct(producto), 1);
+
+        localStorageService.set('carrito', vm.productosSeleccionados);
     };
 
     vm.showAddButton = function (producto) {
@@ -41,11 +48,23 @@
     };
 
     function existProduct(producto) {
-       return vm.productosSeleccionados.indexOf(producto) !== -1;
+        for(var i = 0; i < vm.productosSeleccionados.length; i++) {
+            if(vm.productosSeleccionados[i].producto.id === producto.id) {
+                return true;
+            }
+        }
+       return false;
     }
 
     function getIndexProduct(producto) {
-        return vm.productosSeleccionados.indexOf(producto);
+
+        for(var i = 0; i < vm.productosSeleccionados.length; i++) {
+        if(vm.productosSeleccionados[i].producto.id === producto.id) {
+                 return i;
+             }
+         }
+
+        return -1;
     }
 
     function getCustomProducts() {

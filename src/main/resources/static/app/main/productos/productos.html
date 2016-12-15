@@ -15,12 +15,8 @@
             <md-card-actions>
                 <div layout>
                     <div flex>
-                        <md-button ng-show="vm.showAddButton(producto)" class="md-raised md-accent" ng-click="vm.addProduct(producto)">
-                            Agregar
-                        </md-button>
-                        <md-button ng-show="vm.showRemoveButton(producto)" class="md-raised md-primary" ng-click="vm.removeProduct(producto)">
-                            Quitar
-                        </md-button>
+                        <md-button ng-show="vm.showAddButton(producto)" class="md-raised md-primary" ng-click="vm.addProduct(producto)">Agregar</md-button>
+                        <md-button ng-show="vm.showRemoveButton(producto)" class="md-raised md-warn" ng-click="vm.removeProduct(producto)">Quitar</md-button>
                     </div>
                     <div flex layout layout-align="end center" layout-margin>
                         <span class="md-subhead">{{producto.precio | currency:'S/. '}}</span>

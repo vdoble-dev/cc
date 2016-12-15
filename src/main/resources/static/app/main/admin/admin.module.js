@@ -17,7 +17,10 @@
             'ngFileUpload',
             'lfNgMdFileInput',
             'app.util',
-            'admin.productos']);
+            'admin.productos',
+            'admin.clientes',
+            'admin.ventas'
+            ]);
 
     angular.module('admin')
         .config(['$stateProvider', '$urlRouterProvider', 'cloudinaryProvider', configAdmin]);

@@ -1,0 +1,45 @@
+<div class="md-whiteframe-1dp margin-top-40" layout-padding>
+    <form name="loginForm" novalidate>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="25" flex-offset="25">
+                <label>Nombres</label>
+                <input ng-model="vm.cliente.nombre">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="25">
+                <label>Apellidos</label>
+                <input ng-model="vm.cliente.apellidos">
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="25" flex-offset="25">
+                <label>Direcci&oacute;n</label>
+                <input ng-model="vm.cliente.direccion">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="25">
+                <label>Tel&eacute;fono | Celular</label>
+                <input ng-model="vm.cliente.telefono">
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="25" flex-offset="25">
+                <label>Usuario</label>
+                <input ng-model="vm.cliente.userName">
+            </md-input-container>
+            <md-input-container class="md-block" flex-gt-sm="25">
+                <label>Contrase&ntilde;a</label>
+                <input type="password" ng-model="vm.cliente.password">
+            </md-input-container>
+        </div>
+
+        <div layout>
+            <div flex-offset="25" flex-gt-sm="50" style="text-align: right">
+                <md-button class="md-raised md-accent" ng-click="vm.post($event)">
+                    Aceptar
+                </md-button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,45 @@
+<div layout="colum" layout-padding ng-show="vm.productosSeleccionados">
+    <div class="simple-table-container md-whiteframe-4dp" flex="80" flex-offset="10">
+
+        <div class="table-title">
+            Productos Seleccionados
+        </div>
+
+        <table class="simple">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Producto</th>
+                <th>Descripci&oacute;n</th>
+                <th>Precio</th>
+                <th>Cantidad</th>
+                <th>Sub Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="ps in vm.productosSeleccionados">
+                <td>{{$index+1}}</td>
+                <td>{{ps.producto.nombre}}</td>
+                <td>{{ps.producto.descripcion}}</td>
+                <td>{{ps.producto.precio | currency: 'S/. '}}</td>
+                <td>
+                    <input type="number" ng-model="ps.cantidad" min="1" max="{{ps.producto.cantidad}}" ng-change="vm.changeQty(ps)">
+                </td>
+                <td>{{ps.total | currency: 'S/. '}}</td>
+
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td><strong>TOTAL:</strong></td>
+                <td><strong>{{vm.total | currency: 'S/. '}}</strong></td>
+            </tr>
+            <tr ng-show="vm.productosSeleccionados">
+                <td colspan="5"></td>
+                <td><md-button class="md-raised md-primary" ng-click="vm.post($event)" ng-disabled="vm.errorCompra()">
+                    Comprar
+                </md-button></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

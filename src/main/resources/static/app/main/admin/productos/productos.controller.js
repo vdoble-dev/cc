@@ -23,7 +23,6 @@
     vm.dtOptions = UtilService.getCommonTableConfig();
 
     vm.dtOptions.aoColumnDefs = [{
-      bSortable: false,
       aTargets: [0, 1, 2, 3, 4, 5]
     }];
 

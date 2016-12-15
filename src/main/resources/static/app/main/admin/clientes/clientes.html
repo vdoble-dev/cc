@@ -1,0 +1,43 @@
+<md-content class="md-whiteframe-4dp" layout-padding>
+    <div>
+        <h1>Lista de Clientes</h1>
+    </div>
+    <table datatable="ng" dt-options="vm.dtOptions" class="row-border hover">
+        <thead>
+        <tr>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">#</span>
+                </div>
+            </th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Nombres</span>
+                </div>
+            </th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">Apellidos</span>
+                </div>
+            </th>
+            <th><div class="table-header">
+                <span class="column-title">Direcci&oacute;n</span>
+            </div></th>
+            <th>
+                <div class="table-header">
+                    <span class="column-title">telefono</span>
+                </div>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="cliente in vm.clientes">
+            <td class="center">{{$index + 1}}</td>
+            <td class="center">{{cliente.nombre}}</td>
+            <td class="center">{{cliente.apellidos}}</td>
+            <td class="center">{{cliente.direccion}}</td>
+            <td class="center">{{cliente.telefono}}</td>
+        </tr>
+        </tbody>
+    </table>
+</md-content>

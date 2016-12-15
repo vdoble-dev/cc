@@ -1,0 +1,24 @@
+<div class="md-whiteframe-1dp margin-top-40" layout-padding>
+    <form name="loginForm" novalidate>
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="33" flex-offset="33">
+                <label>Usuario</label>
+                <input ng-model="vm.cliente.userName">
+            </md-input-container>
+        </div>
+
+        <div layout-gt-sm="row">
+            <md-input-container class="md-block" flex-gt-sm="33" flex-offset="33">
+                <label>Contrase&ntilde;a</label>
+                <input ng-model="vm.cliente.password">
+            </md-input-container>
+        </div>
+        <div layout>
+            <div flex-offset="33" flex-gt-sm="33" style="text-align: center">
+                <md-button class="md-raised md-accent" ng-click="vm.login()">
+                    Ingresar
+                </md-button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -67,7 +67,6 @@ public class CompraServiceImpl implements CompraService {
             detalleCompra.setCompra(compra);
             detalleCompraDao.save(detalleCompra);
         });
-
         return compra;
     }
 }
