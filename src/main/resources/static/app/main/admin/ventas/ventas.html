@@ -30,7 +30,7 @@
         <tbody>
         <tr ng-repeat="venta in vm.ventas">
             <td class="center">{{$index + 1}}</td>
-            <td class="center">{{venta.fecha | date: 'dd/MM/yyyy hh:mm:ss'}}</td>
+            <td class="center">{{venta.fecha | date: 'dd/MM/yyyy hh:mm:ss a'}}</td>
             <td class="center">{{venta.cliente.apellidos | uppercase}}, {{venta.cliente.nombre | lowercase}}</td>
             <td class="center">{{venta.total | currency: 'S/. '}}</td>
             <td class="center">
@@ -56,7 +56,7 @@
                 <div class="simple-table-container md-whiteframe-4dp">
 
                     <div class="table-title">
-                        Detalle ({{vm.venta.fecha | date: 'dd/MM/yyyy hh:mm:ss'}})
+                        Detalle ({{vm.venta.fecha | date: 'dd/MM/yyyy h:mm:ss a'}})
                     </div>
 
                     <table class="simple">
